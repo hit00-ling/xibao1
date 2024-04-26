@@ -1,6 +1,4 @@
-input.onGesture(Gesture.LogoUp, function () {
-	
-})
+let list2: number[] = []
 input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Yes)
     basic.showIcon(IconNames.No)
@@ -9,11 +7,19 @@ input.onButtonPressed(Button.AB, function () {
         basic.showString("" + (值))
     }
 })
+input.onGesture(Gesture.FreeFall, function () {
+    basic.showLeds(`
+        # # # # #
+        # # # # .
+        # # # . .
+        # # . . .
+        # . . . .
+        `)
+})
 input.onButtonPressed(Button.B, function () {
     basic.showIcon(IconNames.Happy)
 })
 makerbit.onIrDatagram(function () {
-    hongwai = 0
     if (makerbit.irButton() == 162) {
         basic.showLeds(`
             . . # . .
@@ -64,19 +70,8 @@ makerbit.onIrDatagram(function () {
             `)
     }
 })
-let hongwai = 0
-let list2: string[] = []
 basic.showIcon(IconNames.Heart)
 makerbit.connectIrReceiver(DigitalPin.P16, IrProtocol.NEC)
-list2 = [
-"a",
-"b",
-"c",
-"v"
-]
 basic.forever(function () {
-	
-})
-loops.everyInterval(3600000, function () {
 	
 })
