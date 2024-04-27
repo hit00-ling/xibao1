@@ -1,13 +1,16 @@
 list2: List[number] = []
 
 def on_button_pressed_ab():
-    basic.show_icon(IconNames.YES)
-    basic.show_icon(IconNames.NO)
-    music.play(music.string_playable("G C5 B E D G A E ", 112),
+    basic.show_icon(IconNames.HAPPY)
+    music.play(music.string_playable("G C5 B E D G A E ", 120),
         music.PlaybackMode.UNTIL_DONE)
     for 值 in list2:
         basic.show_string("" + str((值)))
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
+
+def on_ir_button_pressed():
+    pass
+makerbit.on_ir_button(IrButton.ANY, IrButtonAction.PRESSED, on_ir_button_pressed)
 
 def on_gesture_free_fall():
     basic.show_leds("""
@@ -18,10 +21,6 @@ def on_gesture_free_fall():
         # . . . .
         """)
 input.on_gesture(Gesture.FREE_FALL, on_gesture_free_fall)
-
-def on_button_pressed_b():
-    basic.show_icon(IconNames.HAPPY)
-input.on_button_pressed(Button.B, on_button_pressed_b)
 
 def on_ir_datagram():
     if makerbit.ir_button() == 162:
