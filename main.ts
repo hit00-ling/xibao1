@@ -1,11 +1,13 @@
 let list2: number[] = []
 input.onButtonPressed(Button.AB, function () {
-    basic.showIcon(IconNames.Yes)
-    basic.showIcon(IconNames.No)
-    music.play(music.stringPlayable("G C5 B E D G A E ", 112), music.PlaybackMode.UntilDone)
+    basic.showIcon(IconNames.Happy)
+    music.play(music.stringPlayable("G C5 B E D G A E ", 120), music.PlaybackMode.UntilDone)
     for (let 值 of list2) {
         basic.showString("" + (值))
     }
+})
+makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
+	
 })
 input.onGesture(Gesture.FreeFall, function () {
     basic.showLeds(`
@@ -15,9 +17,6 @@ input.onGesture(Gesture.FreeFall, function () {
         # # . . .
         # . . . .
         `)
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showIcon(IconNames.Happy)
 })
 makerbit.onIrDatagram(function () {
     if (makerbit.irButton() == 162) {
