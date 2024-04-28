@@ -22,6 +22,7 @@ input.onGesture(Gesture.FreeFall, function () {
 })
 makerbit.onIrDatagram(function () {
     if (makerbit.irButton() == 162) {
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Half)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             . . # . .
             . . # . .
@@ -30,6 +31,7 @@ makerbit.onIrDatagram(function () {
             . . # . .
             `)
     } else if (makerbit.irButton() == 98) {
+        music.play(music.tonePlayable(294, music.beat(BeatFraction.Half)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             . . . . .
             . . . . .
@@ -38,6 +40,7 @@ makerbit.onIrDatagram(function () {
             . . . . .
             `)
     } else if (makerbit.irButton() == 226) {
+        music.play(music.tonePlayable(330, music.beat(BeatFraction.Half)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             # . . . #
             . # . # .
@@ -46,6 +49,7 @@ makerbit.onIrDatagram(function () {
             # . . . #
             `)
     } else if (makerbit.irButton() == 34) {
+        music.play(music.tonePlayable(349, music.beat(BeatFraction.Half)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             . . # . .
             . . . . .
@@ -54,6 +58,7 @@ makerbit.onIrDatagram(function () {
             . . # . .
             `)
     } else if (makerbit.irButton() == 2) {
+        music.play(music.tonePlayable(392, music.beat(BeatFraction.Half)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             . . . . .
             # # # # #
@@ -62,6 +67,8 @@ makerbit.onIrDatagram(function () {
             . . . . .
             `)
     } else {
+        music.play(music.tonePlayable(988, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+        music.play(music.tonePlayable(523, music.beat(BeatFraction.Quarter)), music.PlaybackMode.InBackground)
         basic.showLeds(`
             # # # # #
             # # # # #
