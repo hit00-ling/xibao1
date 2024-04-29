@@ -1,11 +1,10 @@
-input.onGesture(Gesture.Shake, function () {
-    music.stopAllSounds()
-})
 input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Happy)
-    music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.LoopingInBackground)
     for (let 值 of list2) {
         basic.showString("" + (值))
+    }
+    for (let index = 0; index < 5; index++) {
+        music.play(music.stringPlayable("E E G A C5 C5 A G ", 120), music.PlaybackMode.UntilDone)
     }
 })
 makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
@@ -13,11 +12,11 @@ makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
 })
 input.onGesture(Gesture.FreeFall, function () {
     basic.showLeds(`
+        . . # . .
+        . . # . .
         # # # # #
-        # # # # .
-        # # # . .
-        # # . . .
-        # . . . .
+        . . # . .
+        . . # . .
         `)
 })
 makerbit.onIrDatagram(function () {
@@ -68,7 +67,7 @@ makerbit.onIrDatagram(function () {
             `)
     } else {
         music.play(music.tonePlayable(988, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
-        music.play(music.tonePlayable(523, music.beat(BeatFraction.Quarter)), music.PlaybackMode.InBackground)
+        music.play(music.tonePlayable(988, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
         basic.showLeds(`
             # # # # #
             # # # # #
@@ -78,9 +77,18 @@ makerbit.onIrDatagram(function () {
             `)
     }
 })
-/**
- */
+input.onGesture(Gesture.TiltRight, function () {
+    music.stopAllSounds()
+})
 let list2: string[] = []
+images.createBigImage(`
+    . # . . . . # # . .
+    # # . . . # . . # .
+    . # . . . . . # . .
+    . # . # . . # . . .
+    . # . # . # # # # .
+    `).scrollImage(1, 200)
+music.setVolume(255)
 list2 = [
 "a",
 "b",
@@ -89,7 +97,7 @@ list2 = [
 "e"
 ]
 basic.showIcon(IconNames.Heart)
-makerbit.connectIrReceiver(DigitalPin.P16, IrProtocol.NEC)
+makerbit.connectIrReceiver(DigitalPin.P12, IrProtocol.NEC)
 basic.forever(function () {
 	
 })
