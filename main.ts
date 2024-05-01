@@ -11,6 +11,9 @@ input.onButtonPressed(Button.AB, function () {
 makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
 	
 })
+radio.onReceivedString(function (receivedString) {
+    basic.showString(receivedString)
+})
 makerbit.onIrDatagram(function () {
     if (makerbit.irButton() == 162) {
         music.play(music.tonePlayable(262, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
@@ -90,75 +93,11 @@ images.createBigImage(`
     `).scrollImage(6, 200)
 music.setVolume(255)
 basic.forever(function () {
-    if (input.temperature() >= 31) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-    } else if (input.temperature() >= 29) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-    } else if (input.temperature() >= 28) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . # . # .
-            # . . . #
-            . # # # .
-            `)
-    } else {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            # . . . #
-            . # # # .
-            `)
-    }
+	
 })
 basic.forever(function () {
 	
 })
 basic.forever(function () {
-    if (input.temperature() <= 20) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            . # # # .
-            # . . . #
-            `)
-    } else if (input.temperature() >= 29) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            # # # # #
-            . . . . .
-            `)
-    } else if (input.temperature() >= 28) {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . # . # .
-            # . . . #
-            . # # # .
-            `)
-    } else {
-        basic.showLeds(`
-            . . . . .
-            . # . # .
-            . . . . .
-            # . . . #
-            . # # # .
-            `)
-    }
+	
 })
