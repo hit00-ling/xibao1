@@ -1,3 +1,4 @@
+let list2: number[] = []
 input.onButtonPressed(Button.AB, function () {
     basic.showIcon(IconNames.Happy)
     for (let 值 of list2) {
@@ -80,7 +81,6 @@ input.onGesture(Gesture.ThreeG, function () {
 input.onGesture(Gesture.TiltRight, function () {
     music.stopAllSounds()
 })
-let list2: string[] = []
 images.createBigImage(`
     . # . . . . # # . .
     # # . . . # . . # .
@@ -89,36 +89,76 @@ images.createBigImage(`
     . # . # . # # # # .
     `).scrollImage(6, 200)
 music.setVolume(255)
-list2 = [
-"a",
-"b",
-"c",
-"d",
-"e",
-"f",
-"g",
-"h",
-"i",
-"j",
-"k",
-"l",
-"m",
-"n",
-"o",
-"p",
-"q",
-"r",
-"s",
-"t",
-"u",
-"v",
-"w",
-"x",
-"y",
-"z"
-]
-basic.showIcon(IconNames.Heart)
-makerbit.connectIrReceiver(DigitalPin.P12, IrProtocol.NEC)
+basic.forever(function () {
+    if (input.temperature() >= 31) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+    } else if (input.temperature() >= 29) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+    } else if (input.temperature() >= 28) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . # . # .
+            # . . . #
+            . # # # .
+            `)
+    } else {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+    }
+})
 basic.forever(function () {
 	
+})
+basic.forever(function () {
+    if (input.temperature() <= 20) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            . # # # .
+            # . . . #
+            `)
+    } else if (input.temperature() >= 29) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # # # # #
+            . . . . .
+            `)
+    } else if (input.temperature() >= 28) {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . # . # .
+            # . . . #
+            . # # # .
+            `)
+    } else {
+        basic.showLeds(`
+            . . . . .
+            . # . # .
+            . . . . .
+            # . . . #
+            . # # # .
+            `)
+    }
 })
