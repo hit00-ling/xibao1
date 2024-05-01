@@ -1,12 +1,11 @@
+input.onButtonPressed(Button.A, function () {
+    radio.sendString("A")
+})
 input.onGesture(Gesture.Shake, function () {
     music.stopAllSounds()
 })
 input.onButtonPressed(Button.AB, function () {
-    basic.showIcon(IconNames.Happy)
-    music.play(music.stringPlayable("C D E F G A B C5 ", 120), music.PlaybackMode.LoopingInBackground)
-    for (let 值 of list2) {
-        basic.showString("" + (值))
-    }
+    radio.sendString("CD")
 })
 makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
 	
@@ -19,6 +18,9 @@ input.onGesture(Gesture.FreeFall, function () {
         # # . . .
         # . . . .
         `)
+})
+input.onButtonPressed(Button.B, function () {
+    radio.sendString("B")
 })
 makerbit.onIrDatagram(function () {
     if (makerbit.irButton() == 162) {
@@ -79,9 +81,9 @@ makerbit.onIrDatagram(function () {
     }
 })
 /**
+ * sfdgds
  */
-let list2: string[] = []
-list2 = [
+let list2 = [
 "a",
 "b",
 "c",
