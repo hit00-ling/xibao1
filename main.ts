@@ -10,6 +10,9 @@ input.onButtonPressed(Button.AB, function () {
 makerbit.onIrButton(IrButton.Any, IrButtonAction.Pressed, function () {
 	
 })
+radio.onReceivedString(function (receivedString) {
+    basic.showString(receivedString)
+})
 input.onGesture(Gesture.FreeFall, function () {
     basic.showLeds(`
         # # # # #
