@@ -7,22 +7,13 @@ def on_button_pressed_ab():
             music.PlaybackMode.UNTIL_DONE)
 input.on_button_pressed(Button.AB, on_button_pressed_ab)
 
-def doSomething(array: List[any], image: Image, sprite: game.LedSprite, array2: List[any], 数字: number, 布尔值: bool, 文本: str):
-    pass
-
 def on_received_string(receivedString):
     basic.show_string(receivedString)
 radio.on_received_string(on_received_string)
 
-def on_gesture_three_g():
-    basic.show_leds("""
-        . . # . .
-        . . # . .
-        # # # # #
-        . . # . .
-        . . # . .
-        """)
-input.on_gesture(Gesture.THREE_G, on_gesture_three_g)
+def on_button_pressed_b():
+    basic.show_number(randint(0, 10))
+input.on_button_pressed(Button.B, on_button_pressed_b)
 
 list2: List[str] = []
 images.create_big_image("""
@@ -34,3 +25,15 @@ images.create_big_image("""
     """).scroll_image(1, 200)
 music.set_volume(255)
 list2 = ["a", "b", "c"]
+
+def on_every_interval():
+    pass
+loops.every_interval(500, on_every_interval)
+
+def on_forever():
+    pass
+basic.forever(on_forever)
+
+def on_forever2():
+    serial.write_numbers([0, 1, 0])
+basic.forever(on_forever2)
